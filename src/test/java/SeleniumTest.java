@@ -3,12 +3,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
 public class SeleniumTest {
-    public static void main(String[] args) {
-        WebDriver driver = new ChromeDriver();
-    }
 
     @Test
-    public void sampleTest(){
-        System.out.println("hello");
+    public void openGooglePage(){
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\ajankows\\Desktop\\ChromeDriver\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.google.com/");
     }
 }
