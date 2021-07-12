@@ -1,5 +1,4 @@
-import org.openqa.selenium.InvalidArgumentException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -11,11 +10,18 @@ public class SeleniumTest {
     @Test
     public void openGooglePage(){
         WebDriver driver = getDriver("chrome");
+        driver.manage().window().maximize();
+        driver.get("https://www.google.com");
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        executor.executeScript("window.open('https://www.wp.pl', 'blank', 'height=200, width=200')");
+        driver.close();
+
     }
 
     public WebDriver getDriver(String browser){
         switch (browser){
             case "chrome":
+                System.setProperty("webdriver.chrome.driver", "C:\\Users\\ajankows\\Desktop\\ChromeDriver\\chromedriver.exe");
                 return new ChromeDriver();
             case "firefox":
                 System.setProperty("webdriver.gecko.driver", "C:\\Users\\ajankows\\Desktop\\ChromeDriver\\geckodriver.exe");
