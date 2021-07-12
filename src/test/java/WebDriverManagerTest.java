@@ -1,4 +1,5 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -9,7 +10,10 @@ public class WebDriverManagerTest {
 
     @Test
     public void openBrowser(){
-        WebDriverManager.iedriver().setup();
-        WebDriver driver = new InternetExplorerDriver();
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        Dimension windowSize = new Dimension(200, 200);
+        driver.manage().window().setSize(windowSize);
     }
 }
