@@ -16,7 +16,6 @@ public class SeleniumTest {
     public WebDriver getDriver(String browser){
         switch (browser){
             case "chrome":
-                System.setProperty("webdriver.chrome.driver","C:\\Users\\ajankows\\Desktop\\ChromeDriver\\chromedriver.exe");
                 return new ChromeDriver();
             case "firefox":
                 System.setProperty("webdriver.gecko.driver", "C:\\Users\\ajankows\\Desktop\\ChromeDriver\\geckodriver.exe");
