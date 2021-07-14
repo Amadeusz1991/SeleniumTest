@@ -65,6 +65,7 @@ public class CssSelectorTest {
         driver.findElement(attributeStarts);
         driver.findElement(attributeEnds);
 
+        //Wyszukiwanie elementów z list, "nth" uzywa się w momencie gdy chcemy wybrać konkretny element z listy
         By firstChild = By.cssSelector("li:first-child");
         By lastChild = By.cssSelector("li:last-child");
         By thirdChild = By.cssSelector("li:nth-child(3)");
