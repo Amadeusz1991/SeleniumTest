@@ -4,6 +4,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -78,6 +79,24 @@ public class UsingAllElements {
         Alert alert1 = driver.switchTo().alert();
         alert1.accept();
         driver.switchTo().alert().accept();
+
+        //Klikniecie w przycisk pod obrazkiem i zamknięcie nowej przeglądarki
+        driver.findElement(By.id("newPage")).click();
+        String handle2 = driver.getWindowHandle();
+        Set<String> handles2 = driver.getWindowHandles();
+            for (String han : handles2)
+                if (!han.equals(handle2)) {
+                    driver.switchTo().window(han);
+                }
+        driver.close();
+                // Przełączam sie do pierwszej zakładki w przeglądarce
+                ArrayList<String> tab2 = new ArrayList<String>(driver.getWindowHandles());
+                driver.switchTo().window(tab2.get(0));
+
+        WebElement childItem = driver.findElement(By.cssSelector("li > ul"));
+        System.out.println(childItem.getText());
+
+
 
 
 
