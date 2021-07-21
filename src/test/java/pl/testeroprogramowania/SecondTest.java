@@ -1,5 +1,6 @@
+package pl.testeroprogramowania;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.jsoup.Connection;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +13,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.List;
 
-public class FirstTest extends BaseTest {
+public class SecondTest extends BaseTest {
 
     WebDriver driver;
 
@@ -54,16 +55,16 @@ public class FirstTest extends BaseTest {
         // własny warunek, który sprawdza co sekundę w przedziale czasowym 10s czy warunek jest spełniony czy nie.
         wait.until((driver) -> {
 
-                List<WebElement> elements = driver.findElements(locator);
-                if (elements.size() > 0) {
-                    System.out.println("Element jest na stronie");
-                    return true;
-                } else {
-                    System.out.println("Nie ma na stronie");
-                    return false;
-                }
+            List<WebElement> elements = driver.findElements(locator);
+            if (elements.size() > 0) {
+                System.out.println("Element jest na stronie");
+                return true;
+            } else {
+                System.out.println("Nie ma na stronie");
+                return false;
+            }
 
-            });
-      }
+        });
+    }
     }
 
